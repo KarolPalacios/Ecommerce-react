@@ -18,6 +18,22 @@ const Cart = ({ show, handleClose }) => {
 
     console.log(cart);
 
+
+    let priceTotal = 0
+
+    if(cart){
+        const cb = (acc, cv) => {
+            console.log(cv)
+            let value1 = Number(cv.price) * cv.productsInCart?.quantity
+            let value2 = acc + value1
+            return value2
+        }
+
+        priceTotal = cart.reduce(cb, 0)
+    }
+
+
+
     return (
         <div>
             <Offcanvas show={show} onHide={handleClose}>
@@ -29,11 +45,13 @@ const Cart = ({ show, handleClose }) => {
                         <div key={product.id} className="product-cart">
                             <div className="product-cart-info">
                                 <p className="brand">{product.brand}</p>
-                                <p>{product.title}</p>
-                                <p className="product-cart-quantity">{product.productsInCart.quantity}</p>
+                                <Link to={`/product/${product.id}`} style={{textDecoration: "none", color: "black"}}>
+                                {product.title}
+                                </Link>
+                                <div className="product-cart-quantity">{product.productsInCart.quantity}</div>
                             </div>
                             <div className="total-product">
-                                <p>{product.productsInCart.quantity*product.price}</p>
+                                <p><b>$ {product.productsInCart.quantity*product.price}</b></p>
                             </div>
                         </div>
                     ))}
@@ -42,9 +60,9 @@ const Cart = ({ show, handleClose }) => {
                     <Card.Footer>
                         <div className="total">
                             <span>Total: </span>
-
+                            <b>$ {priceTotal}</b>
                         </div>
-                        <Button onClick={() => dispatch(checkoutCartThunk())}>Checkout</Button>
+                        <Button variant="dark" onClick={() => dispatch(checkoutCartThunk())}>Checkout</Button>
                     </Card.Footer>
             </Offcanvas>
         </div>

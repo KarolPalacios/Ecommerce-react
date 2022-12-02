@@ -262,28 +262,8 @@ Nav .me-auto {
     justify-content: center;
     align-items: center;
 }
-/* .purchases{
-    margin-top: 2rem;
-    list-style: none;
-    display: ;
-    grid-template-columns: 1fr 1fr;
-    column-gap: .5rem;
-    border: 1px solid #98978b;
-    padding: 1rem;
-    max-width: 700px;
-    justify-content: center;
-    align-items: center;
-} */
 
-/* .purchase-cart{
-}
 
-.product-cart{
-    border: 1px solid #ced4da;
-    padding: .5rem;
-    margin-bottom: .5rem;
-    font-size: 15px;
-} */
 
 .brand{
     color: #8e8c84;
@@ -297,9 +277,43 @@ Nav .me-auto {
     margin-bottom: 20px;
 }
 
-.card-footer{
+.product-cart{
+    display: flex;
+    margin-bottom: 2rem;
+    font-size: 15px;
+}
 
+.product-cart-info{
+    flex: 1 1;
+    padding: 0, 10px;
+}
+
+.product-cart-quantity{
+    border: 1px solid #dcd9d9;
+    border-radius: 3px;
+    width: 3rem;
+    text-align: center;
+}
+
+.card-footer{
     border-top: 1px solid #dcd9d9;
     padding: 30px 20px;
     height: 160px;
+}
+
+.total{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+.total span{
+    color: #8e8c84;
+}
+
+.card-footer .btn{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }

@@ -33,11 +33,11 @@ const Purchases = () => {
     return (
         <div>
             <h1>Purchases</h1>
-            <div className="purchase-container">
-                <ul className="purchase-list">
+            <div >
+                <ul  className="purchase-list">
                     {
                         purchases.map(purchase => (
-                            <li key={purchase.id}>
+                            <li key={purchase.id} className="purchase-container">
                                 {purchase.cart.products.map(product => (
                                     <li key={product.cartId} className="product-item">
                                         <div className="info">
