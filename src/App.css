@@ -183,7 +183,9 @@ Nav .me-auto {
 
 .price{
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .border{
@@ -197,4 +199,107 @@ Nav .me-auto {
     display: flex;
     align-items: center;
     gap: 1rem;
+}
+
+.price .btn{
+    margin-top: 1rem;
+}
+
+.cart-button{
+    display: flex;
+}
+
+.login-form{
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #dfd7ca;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #98978b;
+}
+
+.purchase-container{
+    margin-top: 2rem;
+    border: 1px solid #dcd9d9;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.purchase-list{
+    padding: 30px 10px 10px;
+}
+
+.product-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.product-item .info{
+    padding: .5rem;
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: center;
+    height: 80px;
+}
+
+.product-quantity{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-quantity span{
+    border: 1px solid #8e8c84;
+    width: 3rem;
+    height: 2rem;
+    font-size: 15px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+/* .purchases{
+    margin-top: 2rem;
+    list-style: none;
+    display: ;
+    grid-template-columns: 1fr 1fr;
+    column-gap: .5rem;
+    border: 1px solid #98978b;
+    padding: 1rem;
+    max-width: 700px;
+    justify-content: center;
+    align-items: center;
+} */
+
+/* .purchase-cart{
+}
+
+.product-cart{
+    border: 1px solid #ced4da;
+    padding: .5rem;
+    margin-bottom: .5rem;
+    font-size: 15px;
+} */
+
+.brand{
+    color: #8e8c84;
+}
+
+.offcanvas-body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex: 1 1;
+    margin-bottom: 20px;
+}
+
+.card-footer{
+
+    border-top: 1px solid #dcd9d9;
+    padding: 30px 20px;
+    height: 160px;
 }

@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
+import { createPurchaseThunk } from '../store/slices/purchases.slice';
 
 const ProductsDetail = () => {
 
@@ -23,7 +24,7 @@ const ProductsDetail = () => {
     const relatedProducts = productsList.filter(productsItem => productsItem.category.id === productsFound.category.id)
 
     // console.log(relatedProducts);
-    console.log(productsFound);
+    //console.log(productsFound);
 
     const [index, setIndex] = useState(0);
 
@@ -31,8 +32,42 @@ const ProductsDetail = () => {
         setIndex(selectedIndex);
     };
 
+    const [counter, setCounter] = useState(1)
+    // const [quantity, setQuantity] = useState("")
+    
+    const addToCart = (e) => {
+        e.preventDefault()
+        const productToCart = {
+            id: productsFound.id,
+            quantity: counter
+        }
+        console.log(productToCart);
+        dispatch(createPurchaseThunk(productToCart))
+    }
+
+
+    const minusOne = () => {
+        const minus = counter - 1
+        if(minus >= 1){
+            setCounter(minus)
+        }
+    }
+
+    const plusOne = () => setCounter(counter + 1)
+
+
+
     return (
         <div>
+
+            {/* <input 
+                type="text"
+                value={quantity}
+                onChange={e => setQuantity(e.target.value)}
+            />
+
+            <Button onClick={addToCart} >Add to Cart</Button> */}
+
             <Row>
                 {/* IMAGENES */}
                 <Col lg={5}>
@@ -66,21 +101,33 @@ const ProductsDetail = () => {
                     <h1 className='detail-title'>{productsFound?.title}</h1>
                     <p>{productsFound?.description}</p>
                     <div className="price">
-                        <p>$ {productsFound?.price}</p>
+                        <p><b>$ {productsFound?.price}</b></p>
 
                         <div className="shop-counter">
-                            <button className="border">
-                                <i className="fa-solid fa-plus"></i>
-                            </button>
-                            <span>0</span>
-                            <button className="border">
+                            <button 
+                                className="border"
+                                onClick={minusOne}
+                            >
                                 <i className="fa-solid fa-minus"></i>
                             </button>
+
+                            <span>{counter}</span>
+
+                            <button 
+                                className="border"
+                                onClick={plusOne}
+                            >
+                                <i className="fa-solid fa-plus"></i>
+                            </button>
                         </div>
+                        <Button 
+                            className="cart-button" 
+                            variant="dark"
+                            onClick={addToCart}
+                        >
+                            Add to cart <i className="fa-solid fa-cart-plus"></i>
+                        </Button>
                     </div>
-                    <Button className="cart-button" variant="dark">
-                        Add to cart <i className="fa-solid fa-cart-plus"></i>
-                    </Button>
                 </Col>
             </Row>
 

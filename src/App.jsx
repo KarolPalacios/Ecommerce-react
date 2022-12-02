@@ -8,6 +8,7 @@ import ProductsDetail from './pages/ProductsDetail'
 import Purchases from './pages/Purchases'
 import {useSelector} from 'react-redux'
 import Container from 'react-bootstrap/Container'
+import ProtectedRoutes from './components/ProtectedRoutes'
 
 function App() {
 
@@ -22,8 +23,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/product/:id" element={<ProductsDetail/>}/>
-            <Route path="/purchases" element={<Purchases/>}/>
             <Route path="/login" element={<Login/>} />
+
+            <Route element={<ProtectedRoutes/>}>
+              <Route path="/purchases" element={<Purchases/>}/>
+            </Route>
           </Routes>
         </Container>
       </HashRouter>

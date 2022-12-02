@@ -26,7 +26,7 @@ export const filterProductsThunk = (id) => dispatch => {
     .finally(() => dispatch(setIsLoading(false)));
 }
 
-export const filterTitleThunk = (inputSearch) => (dispatch) => {
+export const filterTitleThunk = (inputSearch) => dispatch => {
     dispatch(setIsLoading(true));
     return axios.get(`https://e-commerce-api.academlo.tech/api/v1/products?query=${inputSearch}`)
         .then((res) => dispatch(setProducts(res.data.data.products)))
