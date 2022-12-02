@@ -10,6 +10,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
+import { createPurchaseThunk } from '../store/slices/purchases.slice';
 
 const Home = () => {
 
@@ -25,7 +26,6 @@ const Home = () => {
         axios.get('https://e-commerce-api.academlo.tech/api/v1/products/categories')
             .then(res => setCategoriesList(res.data.data.categories))
     }, [])
-
 
     return (
         <div>

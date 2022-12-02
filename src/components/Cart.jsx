@@ -50,6 +50,7 @@ const Cart = ({ show, handleClose }) => {
                                 </Link>
                                 <div className="product-cart-quantity">{product.productsInCart.quantity}</div>
                             </div>
+
                             <div className="total-product">
                                 <p><b>$ {product.productsInCart.quantity*product.price}</b></p>
                             </div>

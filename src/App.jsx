@@ -16,8 +16,8 @@ function App() {
 
   return (
     <div className="App">
-      { isLoading && <LoadingScreen/>}
       <HashRouter>
+        { isLoading && <LoadingScreen/>}
         <NavBar/>
         <Container className="my-5">
           <Routes>
